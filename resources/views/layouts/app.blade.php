@@ -66,6 +66,11 @@
                                     </form>
                                 </div>
                             </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('user.index') }}">{{ __('Data User') }}</a>
+                            </li>
+
                         @endguest
                     </ul>
                 </div>
@@ -76,5 +81,7 @@
             @yield('content')
         </main>
     </div>
+
+
 </body>
 </html>
