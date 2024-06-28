@@ -47,8 +47,13 @@
                         @enderror
                     </div>
                     <div class="mb-4">
-                        <label for="role_id" class="block text-gray-700">Role Id</label>
-                        <input type="number" name="role_id" id="role_id" class="w-full px-3 py-2 border rounded" required>
+                        <label for="role_id" class="block text-gray-700">Role</label>
+                        <select name="role_id" id="role_id" class="form-control">
+                            <option value="">Pilih Role</option>
+                            @foreach ($roles as $role)
+                            <option value={{ $role->id }}>{{ $role->role }}</option>
+                            @endforeach
+                        </select>
                         @error('role_id')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
