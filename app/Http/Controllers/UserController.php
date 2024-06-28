@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -14,7 +15,11 @@ class UserController extends Controller
     }
 
     public function create(){
-        return view('user.create');
+        $roles = Role::all();
+        $data = [
+            "roles" => $roles
+        ];
+        return view('user.create', $data);
     }
 
     public function store(Request $request){
@@ -63,7 +68,9 @@ class UserController extends Controller
         return redirect()->route('user,index')->with('success', 'Data Berhasil Di Update.');
     }
 
-    public function destroy(User $user){
+    public function destroy($id){
+        // yang sedang login tidak boleh dihapus!
+        $user = User::find($id);
         $user->delete();
         return redirect()->route('user.index')->with('success', 'Data Berhasil Di Hapus.');
     }
