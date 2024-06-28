@@ -10,6 +10,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('user.index', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
 Route::resource('user', UserController::class);
+
+Route::get('/user.create', [UserController::class, 'create'])->name('user.create');
+Route::post('/user.store', [UserController::class, 'store'])->name('user.store');
