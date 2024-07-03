@@ -7,12 +7,9 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
-class UserController extends Controller
+class PenggunaController extends Controller
 {
-    public function index(){
-        $users = User::all();
-        return view('user.index', compact('users'));
-    }
+    
     public function create(){
         $roles = Role::all();
         $data = [
@@ -69,10 +66,7 @@ class UserController extends Controller
     public function destroy($id){
         // yang sedang login tidak boleh dihapus!
         $user = User::find($id);
-        if(auth()->user()->id == $user->id){
-            return redirect()->route('index')->with('error', 'Pengguna sedang login, tidak bisa di hapus');
-        }
         $user->delete();
-        return redirect()->route('index')->with('success', 'Data Berhasil Di Hapus.');
+        return redirect()->route('user.index')->with('success', 'Data Berhasil Di Hapus.');
     }
 }
