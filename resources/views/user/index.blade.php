@@ -21,11 +21,11 @@
     <div class="card-body">
         <table class="table">
             <tr>
-                <a class="btn btn-primary font-bold py-2 px-4 rounded" href="{{ route('user.create') }}">Buat User</a> 
+                <a class="btn btn-primary font-bold py-2 px-4 rounded" href="{{ route('user.create') }}">Add User</a> 
             </tr>
             <thead>
                 <tr align="center">
-                <th>ID</th>
+                <th>NO</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Created At</th>
@@ -36,13 +36,13 @@
             <tbody>
                 @foreach($users as $user)
                 <tr>
-                    <td>{{ $user->id }}</td>
+                    <td>{{ $loop->iteration }}</td> {{-- untuk nomor iterasi (pengulangan)  --}}
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>{{ $user->created_at }}</td>
                     <td>{{ $user->updated_at }}</td>
                     <td>
-                        <a class="btn btn-primary font-bold py-2 px-4 rounded" href="{{ route('user.edit', $user->id) }}">Edit</a>
+                        <a class="btn btn-primary" href="{{ route('user.edit', $user->id) }}">Edit</a>
                     </td>
                     <td>
                         <form action="{{ route('user.destroy', $user->id) }}" method="POST" style="display: inline">

@@ -35,6 +35,12 @@
                         </li>
                     </ul>
 
+                    <ul class="navbar-nav me-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('teater.index') }}">{{ __('Data Theater') }}</a>
+                        </li>
+                    </ul>
+
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
                         <!-- Authentication Links -->
