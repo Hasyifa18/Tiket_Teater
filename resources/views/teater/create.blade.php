@@ -38,7 +38,7 @@
                     <input type="date" name="show_date" class="form-control" placeholder="Show Date">
                 </div>
             </div>
-            <div class="col-xs-12 col-sm-12 col-md-12 text-center">
+            <div class="col-xs-12 col-sm-12 col-md-12 mt-4 text-center">
                 <button type="submit" class="btn btn-primary">Submit</button>
             </div>
         </div>

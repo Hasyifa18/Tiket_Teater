@@ -14,6 +14,8 @@ class Teater extends Model
     protected $fillable = [
         'title',
         'description',
-        'show_date'
+        'show_date',
+        'created_at',
+        'updated_at'
     ];
 }

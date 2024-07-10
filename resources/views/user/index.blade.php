@@ -13,15 +13,17 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
-    @if (session('success'))
-        <div>{{ session('success') }}</div>
-    @endif  
+                <h2 align="center">DATA USER</h2>
+                @if ($message = Session::get('success'))
+                    <div class="alert alert-success mt-2 text-center">
+                        <p>{{ $message }}</p>
+                    </div>
+                @endif  
 
     <div class="card-body">
         <table class="table">
             <tr>
-                <a class="btn btn-primary font-bold py-2 px-4 rounded" href="{{ route('user.create') }}">Add User</a> 
+                <a class="btn btn-success font-bold py-2 px-4 rounded" href="{{ route('user.create') }}">Add User</a> 
             </tr>
             <thead>
                 <tr align="center">
