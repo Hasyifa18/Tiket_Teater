@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('dashboard');
 });
 
 Auth::routes();
@@ -34,7 +34,7 @@ Route::get('/teater/{id}', [TeaterController::class, 'show'])->name('teater.show
 
 Route::resource('booking', BookingController::class);
 
-Route::get('/booking/create/{teater}', [BookingController::class, 'create'])->name('booking.create')->middleware('auth');
-Route::post('/booking', [BookingController::class, 'store'])->name('booking.store')->middleware('auth');
+Route::get('/booking/create', [BookingController::class, 'create'])->name('booking.create');
+Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
 Route::get('booking/{booking}/edit', [BookingController::class, 'edit'])->name('bookings.edit');
 Route::put('booking/{booking}', [BookingController::class, 'update'])->name('bookings.update');

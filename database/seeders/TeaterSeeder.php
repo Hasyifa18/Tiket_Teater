@@ -17,8 +17,8 @@ class TeaterSeeder extends Seeder
             'title'=> 'Upin Ipin',
             'description' => 'Bocil Kemm',
             'show_date' => now(),
-            'created_at' => now(),
-            'updated_at' => now(),
+            // 'created_at' => now(),
+            // 'updated_at' => now(),
         ]);
 
     }

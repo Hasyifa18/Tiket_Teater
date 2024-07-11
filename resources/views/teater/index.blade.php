@@ -23,7 +23,7 @@
                 @endif  
 
     <div class="card-body">
-        <table class="table" border="2">
+        <table class="table table-bordered table-striped table-hover">
             <tr>
                 <a class="btn btn-success font-bold py-2 px-4 mb-4 rounded" href="{{ route('teater.create') }}">Create New Theater</a> 
             </tr>
@@ -44,7 +44,7 @@
                     <td>{{ $loop->iteration }}</td> {{-- untuk nomor iterasi (pengulangan)  --}}
                     <td>{{ $teater->title }}</td>
                     <td>{{ $teater->description }}</td>
-                   <td>{{ $teater->show_date }}</td>
+                    <td>{{ $teater->show_date }}</td>
                     <td>{{ $teater->created_at }}</td>
                     <td>{{ $teater->updated_at }}</td>
                     <td>

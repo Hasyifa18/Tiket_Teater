@@ -16,8 +16,6 @@ class CreateTeaterTable extends Migration
             $table->string('title');
             $table->text('description')->nullable();
             $table->date('show_date');
-            $table->dateTime('created_at');
-            $table->dateTime('updated_at');
             $table->timestamps();
         });
     }

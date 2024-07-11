@@ -16,11 +16,11 @@ class BookingController extends Controller
      */
     public function index()
     {
-         // Ambil semua booking dari model Booking
-         $bookings = Booking::all();
+         
+         $teaters = Teater::select('title', 'show_date')->get();
 
          // Return view 'bookings.index' dengan data $bookings
-         return view('booking.index', compact('bookings'));
+         return view('booking.index', compact('teaters'));
     }
 
     /**
@@ -31,8 +31,7 @@ class BookingController extends Controller
     public function create()
     {
         $teaters = Teater::all();
-
-        return view('bookings.create', compact('teaters'));
+        return view('booking.create', compact('teaters'));
     }
 
     /**
@@ -41,23 +40,24 @@ class BookingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Teater $teater)
     {
         // Validasi data
         $request->validate([
-            'theater_id' => 'required|exists:theaters,id',
+            'teater_id' => 'required|exists:teaters,id',
+            'date'=> 'required|date',
             'quantity' => 'required|integer|min:1',
         ]);
 
         // Membuat objek booking baru
         $booking = new Booking();
-        $booking->user_id = Auth::id(); // Mendapatkan ID user yang sedang login
-        $booking->teater_id = $request->teater_id;
+        $booking->user_id = Auth()->id(); // Mendapatkan ID user yang sedang login
+        $booking->teater_id = $teater->id;
         $booking->quantity = $request->quantity;
         $booking->save();
 
         // Redirect ke halaman booking atau sesuaikan dengan kebutuhan aplikasi Anda
-        return redirect()->route('bookings.index')->with('success', 'Pemesanan tiket berhasil.');
+        return redirect()->route('booking.index')->with('success', 'Pemesanan tiket berhasil.');
     }
 
     /**
@@ -68,7 +68,7 @@ class BookingController extends Controller
      */
     public function show(Booking $booking)
     {
-        return view('bookings.show', compact('booking'));
+        return view('booking.show', compact('booking'));
     }
 
     /**
@@ -82,7 +82,7 @@ class BookingController extends Controller
         // Mengambil daftar teater untuk ditampilkan di dropdown
         $teaters = Teater::all();
 
-        return view('bookings.edit', compact('booking', 'teaters'));
+        return view('booking.edit', compact('booking', 'teaters'));
     }
 
     /**
@@ -106,7 +106,7 @@ class BookingController extends Controller
         $booking->save();
 
         // Redirect ke halaman detail booking atau sesuaikan dengan kebutuhan aplikasi Anda
-        return redirect()->route('bookings.show', $booking)->with('success', 'Booking berhasil diperbarui.');
+        return redirect()->route('booking.show', $booking)->with('success', 'Booking berhasil diperbarui.');
     }
 
     /**
@@ -120,6 +120,6 @@ class BookingController extends Controller
         $booking->delete();
 
         // Redirect ke halaman daftar booking atau sesuaikan dengan kebutuhan aplikasi Anda
-        return redirect()->route('bookings.index')->with('success', 'Booking berhasil dihapus.');
+        return redirect()->route('booking.index')->with('success', 'Booking berhasil dihapus.');
     }
 }

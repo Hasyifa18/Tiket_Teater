@@ -15,7 +15,12 @@ class Teater extends Model
         'title',
         'description',
         'show_date',
-        'created_at',
-        'updated_at'
+        // 'created_at',
+        // 'updated_at'
     ];
+
+    public function booking()
+    {
+        return $this->hasMany(Booking::class);
+    }
 }

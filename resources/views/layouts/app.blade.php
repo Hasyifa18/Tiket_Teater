@@ -15,11 +15,29 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+
+    <style>
+        .nav-link:hover {
+          background-color: #929497; 
+          color: #fff !important; /* White text */
+          font-weight: bold; /* Bold text */
+          border-radius: 1rem; /* Rounded corners */
+        }
+
+        .dropdown-item:hover {
+          background-color: #929497; 
+          color: #fff !important; /* White text */
+          font-weight: bold; /* Bold text */
+          border-radius: 1rem; /* Rounded corners */
+        }
+      </style>
+
 </head>
 <body>
+
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">            
+            <div class="container"> 
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'TiketQ') }}
                 </a>
@@ -27,23 +45,23 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <div class="collapse navbar-collapse" id="navbarNav">
                     <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('user.index') }}">{{ __('Data User') }}</a>
+                            <a class="nav-link active" href="{{ route('user.index') }}">{{ __('Data User') }}</a>
                         </li>
                     </ul>
 
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('teater.index') }}">{{ __('Data Theater') }}</a>
+                            <a class="nav-link active" href="{{ route('teater.index') }}">{{ __('Data Theater') }}</a>
                         </li>
                     </ul>
 
-                    <ul class="navbar-nav me-auto">
+                    <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('booking.index') }}">{{ __('Booking now') }}</a>
+                            <a class="nav-link active" href="{{ route('booking.index') }}">{{ __('Booking now') }}</a>
                         </li>
                     </ul>
 
