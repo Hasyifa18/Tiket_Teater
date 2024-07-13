@@ -14,9 +14,7 @@ class Teater extends Model
     protected $fillable = [
         'title',
         'description',
-        'show_date',
-        // 'created_at',
-        // 'updated_at'
+        'show_date'
     ];
 
     public function booking()

@@ -16,7 +16,7 @@
             <p class="text-sm font-medium text-gray-700">Show Date:</p>
             <p>{{ $teater->show_date }}</p>
         </div>
-        <div class="flex justify-end mt-4">
+        <div class="flex justify-end">
             <a href="{{ route('teater.index') }}" class="btn btn-primary">Back</a>
         </div>
     </div>

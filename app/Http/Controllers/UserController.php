@@ -63,6 +63,11 @@ class UserController extends Controller
             // 'password' => 'nullable|char|min:8|confirmed',
         ]);
 
+        // if ($request->failed('password')){
+        //     $validatedData['password'] = bcrypt($validatedData['password']);
+        // } else {
+        //     unset($validatedData['password']);
+        // }
 
         $user = user::findOrFail($id); 
         $user->update($request->all());

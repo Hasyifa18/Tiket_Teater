@@ -39,7 +39,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark">            
             <div class="container"> 
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'TiketQ') }}
+                    {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -56,18 +56,6 @@
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
                             <a class="nav-link active" href="{{ route('teater.index') }}">{{ __('Data Theaters') }}</a>
-                        </li>
-                    </ul>
-
-                    {{-- <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('booking.list') }}">{{ __('Booking LIST') }}</a>
-                        </li>
-                    </ul>
-                     --}}
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('booking.index') }}">{{ __('Data Booking') }}</a>
                         </li>
                     </ul>
 

@@ -121,3 +121,4 @@ class BookingController extends Controller
         return redirect()->route('booking.index')->with('success', 'Booking berhasil dihapus.');
     }
 }
+
