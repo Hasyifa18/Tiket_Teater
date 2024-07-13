@@ -49,13 +49,19 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('user.index') }}">{{ __('Data Users') }}</a>
+                            <a class="nav-link active" href="{{ route('user.index') }}">{{ __('Manage Users') }}</a>
                         </li>
                     </ul>
 
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link active" href="{{ route('teater.index') }}">{{ __('Data Theaters') }}</a>
+                            <a class="nav-link active" href="{{ route('teater.index') }}">{{ __('Manage Theaters') }}</a>
+                        </li>
+                    </ul>
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="{{ route('booking.index') }}">{{ __('Manage Bookings') }}</a>
                         </li>
                     </ul>
 

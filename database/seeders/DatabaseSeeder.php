@@ -3,8 +3,10 @@
 namespace Database\Seeders;
 
 use App\Models\User;
+use Database\Seeders\SeatsSeeder as SeedersSeatsSeeder;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use SeatsSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -16,7 +18,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
             RoleSeeder::class,
-            TeaterSeeder::class
+            TeaterSeeder::class,
+            SeedersSeatsSeeder::class,
         ]);
     }
 }

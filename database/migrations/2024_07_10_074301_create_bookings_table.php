@@ -11,12 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bookings', function (Blueprint $table) {
+        Schema::create('booking', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('teater_id');
-            $table->integer('quantity');
+            $table->string('customer_name');
+            $table->string('email');
+            $table->string('phone');
+            $table->unsignedBigInteger('teater_id'); //relasi sama teater
+            $table->integer('number_ticket');
+            $table->string('payment_method');
             $table->timestamps();
+
+            //indeks buat pencarian yg lebih cepet kalo perlu
+            $table->index('teater_id');
         });
     }
 
@@ -25,7 +31,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bookings');
+        Schema::dropIfExists('booking');
     }
 };
 
