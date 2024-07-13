@@ -33,9 +33,20 @@
                             <label for="tickets">Quantity</label>
                             <input type="number" class="form-control" id="tickets" name="tickets" min="1" required>
                         </div>
+
+                        <div class="form-group">
+                            <label for="payment">Payment Method</label>
+                            <select class="form-control" id="payment" name="payment" required>
+                                <option value="" disabled selected>Select Payment Method</option>
+                                <option value="gopay">Gopay</option>
+                                <option value="ovo">OVO</option>
+                                <option value="bank_transfer">Bank Transfer</option>
+                            </select>
+                        </div>
             
                     </form>
                 </div>
+
             
                 <div class="text-center mb-2" > <!-- Menggunakan text-center untuk mengatur tombol ke tengah -->
                     <button type="submit" class="btn btn-primary">

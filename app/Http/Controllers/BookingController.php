@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Teater;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Log;
 
 class BookingController extends Controller
 {
@@ -45,32 +46,29 @@ class BookingController extends Controller
         // Validasi data
         $request->validate([
             'teater_id' => 'required|exists:teaters,id',
-            'date'=> 'required|date',
+            'date' => 'required|date',
             'quantity' => 'required|integer|min:1',
+            'payment' => 'required|in:gopay,ovo,bank_transfer',
         ]);
 
-        // Membuat objek booking baru
-        $booking = new Booking();
-        $booking->user_id = Auth()->id(); // Mendapatkan ID user yang sedang login
-        $booking->teater_id = $teater->id;
-        $booking->quantity = $request->quantity;
-        $booking->save();
+        // Simpan data booking
+        Booking::create([
+            'user_id' => Auth::id(), // Mendapatkan ID user yang sedang login
+            'teater_id' => $request->teater_id,
+            'quantity' => $request->quantity,
+            'payment' => $request->payment,
+            
+        ]);
 
         // Redirect ke halaman booking atau sesuaikan dengan kebutuhan aplikasi Anda
-        return redirect()->route('booking.index')->with('success', 'Pemesanan tiket berhasil.');
+        return redirect()->route('booking.list')->with('success', 'Pemesanan tiket berhasil.');
     }
 
-    /**
-     * Menampilkan detail booking tertentu.
-     *
-     * @param  \App\Models\Booking  $booking
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Booking $booking)
+    public function list()
     {
-        return view('booking.show', compact('booking'));
+        $bookings = Booking::all(); // Ambil semua booking dari database
+        return view('booking.list', compact('bookings'));
     }
-
     /**
      * Menampilkan form untuk mengedit booking.
      *

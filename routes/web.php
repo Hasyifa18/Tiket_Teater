@@ -34,7 +34,10 @@ Route::get('/teater/{id}', [TeaterController::class, 'show'])->name('teater.show
 
 Route::resource('booking', BookingController::class);
 
-Route::get('/booking/create', [BookingController::class, 'create'])->name('booking.create');
+Route::get('/booking', [BookingController::class, 'index'])->name('booking.index');
 Route::post('/booking', [BookingController::class, 'store'])->name('booking.store');
+Route::get('/booking/create', [BookingController::class, 'create'])->name('booking.create');
+Route::get('booking/list', [BookingController::class, 'list'])->name('booking.list');
 Route::get('booking/{booking}/edit', [BookingController::class, 'edit'])->name('bookings.edit');
 Route::put('booking/{booking}', [BookingController::class, 'update'])->name('bookings.update');
+Route::delete('/booking/{booking}', [BookingController::class, 'destroy'])->name('booking.destroy');

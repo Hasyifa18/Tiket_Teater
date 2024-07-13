@@ -15,7 +15,7 @@ class TeaterSeeder extends Seeder
     {
         Teater::create([
             'title'=> 'Upin Ipin',
-            'description' => 'Bocil Kemm',
+            'description' => 'Bocil Kembar',
             'show_date' => now(),
             // 'created_at' => now(),
             // 'updated_at' => now(),

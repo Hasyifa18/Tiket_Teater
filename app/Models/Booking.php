@@ -13,6 +13,7 @@ class Booking extends Model
         'user_id',
         'teater_id',
         'quantity',
+        'payment',
     ];
 
     public function user()
