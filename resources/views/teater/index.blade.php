@@ -32,7 +32,8 @@
                 <th>NO</th>
                 <th>Title</th>
                 <th>Description</th>
-               <th>Show Date</th>
+                <th>Thumbnail</th>
+                <th>Show Date</th>
                 <th>Created At</th>
                 <th>Updated At</th>
                 <th>Action</th>
@@ -44,6 +45,7 @@
                     <td>{{ $loop->iteration }}</td> {{-- untuk nomor iterasi (pengulangan)  --}}
                     <td>{{ $teater->title }}</td>
                     <td>{{ $teater->description }}</td>
+                    <td><img src="{{asset('storage/judul/' . $teater->gambar) }}" alt=""></td>
                     <td>{{ $teater->show_date }}</td>
                     <td>{{ $teater->created_at }}</td>
                     <td>{{ $teater->updated_at }}</td>

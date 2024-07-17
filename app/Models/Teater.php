@@ -15,6 +15,7 @@ class Teater extends Model
         'title',
         'description',
         'show_date',
+        'gambar'
     ];
 
     public function booking()

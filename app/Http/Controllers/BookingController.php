@@ -11,7 +11,7 @@ class BookingController extends Controller
 {
     public function index()
     {
-        $bookings = Booking::with('teater','seats')->get();
+        $bookings = Booking::all();
         return view('booking.index', compact('bookings'));
     }
 
@@ -28,24 +28,21 @@ class BookingController extends Controller
             'customer_name' => 'required',
             'email' => 'required|email',
             'phone' => 'required',
-            'teater_id' => 'required|exists:teaters,id',
+            'teater_id' => 'required|exists:teater,id',
             'seat_id' => 'required|exists:seats,id',
             'number_ticket' => 'required|integer',
             'payment_method' => 'required',
         ]);
 
-        // Booking::create([
-        //     'customer_name' => $request->customer_name,
-        //     'email' => $request->email,
-        //     'phone' => $request->phone,
-        //     'teater_id' => $request->teater_id,
-        //     'seat_id' => $request->seat_id,
-        //     'number_ticket' => $request->number_ticket,
-        //     'payment_method' => $request->payment_method,
-
-        Booking::create($request->only([
-            'customer_name', 'email', 'phone', 'teater_id', 'seat_id', 'number_ticket', 'payment_method'
-        ]));
+        Booking::create([
+            'customer_name' => $request->customer_name,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'teater_id' => $request->teater_id,
+            'seat_id' => $request->seat_id,
+            'number_ticket' => $request->number_ticket,
+            'payment_method' => $request->payment_method,
+        ]);
 
         return redirect()->route('booking.index')->with('success', 'Booking Created Successfully!!!');
     }

@@ -17,7 +17,7 @@
                      @endif
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('teater.store') }}">
+                    <form method="POST" action="{{ route('teater.store') }}"  enctype="multipart/form-data">
                         @csrf
 
                         <div class="row mb-3">
@@ -33,6 +33,13 @@
 
                             <div class="col-md-6">
                                 <textarea id="description" name="description" class="form-control @error('description') is-invalid @enderror" rows="3">{{ old('description') }}</textarea>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="gambar" class="col-md-4 col-form-label text-md-end">{{ __('gambar') }}</label>
+                            <div class="col-md-6">
+                                <input type="file" class="form-control" name="gambar" id="gambar">
                             </div>
                         </div>
 

@@ -30,13 +30,31 @@ class TeaterController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => 'required',
-            'description' => 'nullable',
+            'title' => 'required|string|max:255',
+            'description' => 'required|string',
             'show_date' => 'required|date',
+            'gambar' => 'required', // validasi untuk file gambar
         ]);
+    
+        // Ambil data dari request
+        $title = $request->input('title');
+        $description = $request->input('description');
+        $show_date = $request->input('show_date');
+        $gambar = $request->file('gambar');
+    
+        // Simpan gambar ke dalam folder 'gambar' di dalam folder 'public'
+        $gambar->move(public_path('storage/judul'), $gambar->getClientOriginalName());
 
-        Teater::create($request->all());
-        return redirect()->route('teater.index')->with('success','Theater Created Successfully');
+        // Buat entry baru di database menggunakan model Teater atau model yang sesuai
+        $teater = new Teater();
+        $teater->title = $title;
+        $teater->description = $description;
+        $teater->show_date = $show_date;
+        $teater->gambar = $gambar->getClientOriginalName();; // Simpan nama file gambar ke dalam kolom 'gambar'
+        $teater->save();
+    
+        // Redirect dengan pesan sukses
+        return redirect()->route('teater.index')->with('success', 'Theater Created Successfully');
     }
 
     /**

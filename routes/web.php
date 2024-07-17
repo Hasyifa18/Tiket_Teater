@@ -3,18 +3,24 @@
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\TeaterController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\User2Controller;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('dashboard');
-});
+Route::get('/', [DashboardController::class, 'index'])->name('index');
 
 Auth::routes();
 
 Route::get('user.index', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
 Route::resource('user', UserController::class);
+Route::resource('user2', User2Controller::class);
+Route::get('hasil', [User2Controller::class, 'hasil'])->name('hasil');
+Route::get('checkout/{id}', [User2Controller::class, 'checkout'])->name('checkout');
+Route::get('detail/{id}', [User2Controller::class, 'detail'])->name('detailT');
+
+Route::post('store/bukti', [User2Controller::class, 'store2'])->name('storeBukti');
 
 // Route::get('/user.create', [UserController::class, 'create'])->name('user.create');
 // Route::post('/user.store', [UserController::class, 'store'])->name('user.store');

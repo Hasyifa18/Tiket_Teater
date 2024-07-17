@@ -15,9 +15,11 @@ class Booking extends Model
         'customer_name',
         'email',
         'phone',
+        'teater_id',
         'number_ticket',
         'seat_id', 
         'payment_method',
+        'bukti'
     ];
     
     public function teater()

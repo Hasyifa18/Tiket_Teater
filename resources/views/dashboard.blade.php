@@ -83,15 +83,30 @@
 
     <header class="bg-gradient-to-r from-gray-700 via-gray-780 to-black text-white">
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <h1 class="text-3xl font-bold tracking-tight">BOOK YOUR TICKET NOW!!! >.<</h1>
+        <h1 class="text-3xl font-bold tracking-tight text-center">BOOK YOUR TICKET NOW!!! >.<</h1>
       </div>
     </header>
     <main class="min-h-screen bg-gradient-to-r from-gray-700 via-gray-780 to-black text-white">
       <div class="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <!-- Your content -->
-
-        <h1 align="center">Assalamu'alaikum</h1>
-        <h1 align="center">Bismillah yuk bisa yuukkk</h1>
+        <div class="flex justify-center space-x-4 overflow-x-auto">
+          @foreach ($data as $item)
+          <div class="max-w-sm rounded overflow-hidden shadow-lg">
+            <img class="w-full" src="{{ asset('storage/judul/'. $item->gambar) }}" alt="Foto" style="height: 200px">
+            <div class="px-6 py-4">
+              <div class="font-bold text-xl mb-2">{{ $item->title }}</div>
+              <p class="text-base">
+                {{ $item->description }}
+              </p>
+              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                Book now!
+              </button>
+            </div>
+          </div>
+          @endforeach
+        </div>
+        
+        </div>        
       </div>
     </main>
   </div>

@@ -9,8 +9,8 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $teaters = Teater::select('title', 'show_date')->get();
-        return view('dashboard', compact('teaters'));
+        $data = Teater::all();
+        return view('dashboard', compact('data'));
     }
 }
 
