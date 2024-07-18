@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\Role;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
@@ -28,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/user2';
 
     /**
      * Create a new controller instance.
@@ -51,8 +52,8 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'role_id'=>['required']
+            'password' => ['required', 'string', 'min:5', 'confirmed'],
+            // 'role_id' => ['required', 'int', 'min:1'],
         ]);
     }
 
@@ -68,6 +69,8 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+           'role_id' =>  Role::where('role', 'user')->first()->id,
         ]);
+        return redirect()->route('user.index')->with('success', 'Data user berhasil');
     }
 }

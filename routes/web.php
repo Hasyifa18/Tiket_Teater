@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\TeaterController;
 use App\Http\Controllers\UserController;
@@ -11,6 +12,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [DashboardController::class, 'index'])->name('index');
 
 Auth::routes();
+
+Route::get('register', [App\Http\Controllers\Auth\RegisterController::class, 'showRegistrationForm'])->name('register');
 
 Route::get('user.index', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 

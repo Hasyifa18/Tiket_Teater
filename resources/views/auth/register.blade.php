@@ -61,14 +61,23 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
-                            <label for="role_id" class="col-md-4 col-form-label text-md-end">{{ __('role_id') }}</label>
+                        {{-- <div class="row mb-3">
+                            <label for="role_id" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
                             <div class="col-md-6">
-                                <input id="role_id" type="number" class="form-control" name="role_id" required autocomplete="role_id">
+                                <select name="role_id" id="role_id" class="from-control">
+                                    <option value="">Pilih Role</option>
+                                    @foreach ($roles as $role)
+                                    <option value={{ $role->id }}>{{ $role->role }}</option>
+                                    @endforeach
+                                </select> 
                             </div>
+                            @error('role_id')
+                            <span class="text-red-500 text-sm">{{ $message }}</span>
+                        @enderror
                         </div>
+                        </div> --}}
 
-                        <div class="row mb-0">
+                        <div class="row mb-2">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}

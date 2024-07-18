@@ -22,26 +22,33 @@
                         @method('PUT')
 
                         <div class="row mb-3">
-                            <label for="title" class="block text-sm font-medium text-gray-700">{{__('Title') }}</label>
+                            <label for="title" class="col-md-4 col-form-label text-md-end">{{__('Title') }}</label>
                             
                             <div class="col-md-6">
-                                <input type="text" name="title" id="title" value="{{ $teater->title }}" class="form-input mt-1 block w-full">
+                                <input type="text" name="title" id="title" value="{{ $teater->title }}" class="form-control">
                             </div> 
                         </div>
 
                         <div class="row mb-3">
-                            <label for="description" class="block text-sm font-medium text-gray-700">{{ __('Description') }}</label>
+                            <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
                         
                             <div class="col-md-6">
-                                <textarea name="description" id="description" class="form-textarea mt-1 block w-full">{{ $teater->description }}</textarea>
+                                <textarea name="description" id="description" class="form-control">{{ $teater->description }}</textarea>
                             </div>
                         </div>
 
                         <div class="row mb-3">
-                            <label for="show_date" class="block text-sm font-medium text-gray-700">{{ __('Show Date') }}</label>
+                            <label for="gambar" class="col-md-4 col-form-label text-md-end">{{ __('gambar') }}</label>
+                            <div class="col-md-6">
+                                <input type="file" class="form-control" name="gambar" id="gambar">
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="show_date" class="col-md-4 col-form-label text-md-end">{{ __('Show Date') }}</label>
                         
                             <div class="col-md-6">
-                                <input type="date" name="show_date" id="show_date" value="{{ $teater->show_date }}" class="form-input mt-1 block w-full">
+                                <input type="date" name="show_date" id="show_date" value="{{ $teater->show_date }}" class="form-control">
                             </div>
                         </div>
 

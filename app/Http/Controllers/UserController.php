@@ -78,6 +78,10 @@ class UserController extends Controller
     public function destroy($id){
         // yang sedang login tidak boleh dihapus!
         $user = User::find($id);
+        if(auth()->user()->id == $user->id){
+            return redirect()->route('index')->with('error', 'Pengguna sedang login, tidak bisa di hapus');
+        }
+        $user = User::find($id);
         $user->delete();
         return redirect()->route('user.index')->with('success', 'User Deleted Successfully!');
     }

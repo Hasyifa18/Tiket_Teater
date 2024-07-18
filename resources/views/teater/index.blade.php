@@ -45,14 +45,13 @@
                     <td>{{ $loop->iteration }}</td> {{-- untuk nomor iterasi (pengulangan)  --}}
                     <td>{{ $teater->title }}</td>
                     <td>{{ $teater->description }}</td>
-                    <td><img src="{{asset('storage/judul/' . $teater->gambar) }}" alt=""></td>
+                    <td><img src="{{asset('storage/judul/' . $teater->gambar) }}" alt="" style="width:300px;height:150px"></td>
                     <td>{{ $teater->show_date }}</td>
                     <td>{{ $teater->created_at }}</td>
                     <td>{{ $teater->updated_at }}</td>
                     <td>
-                        <a class="btn btn-primary" href="{{ route('teater.edit', $teater->id) }}">Edit</a>
-                    </td>
-                    <td>
+                        <a class="btn btn-primary mb-2" href="{{ route('teater.edit', $teater->id) }}">Edit</a>
+                 
                         <form action="{{ route('teater.destroy', $teater->id) }}" method="POST" style="display: inline">
                             @csrf
                             @method('DELETE')

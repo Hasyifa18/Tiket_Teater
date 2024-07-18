@@ -18,8 +18,8 @@
             
             <div class="hidden md:block">
               <div class="ml-10 flex items-baseline space-x-4">
-                <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Dashboard</a>
-                <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">List Theater</a>
+                <a href="/" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">Dashboard</a>
+                {{-- <a href="#" class="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white" aria-current="page">List Theater</a> --}}
               </div>
             </div>
           </div>
@@ -93,14 +93,14 @@
           @foreach ($data as $item)
           <div class="max-w-sm rounded overflow-hidden shadow-lg">
             <img class="w-full" src="{{ asset('storage/judul/'. $item->gambar) }}" alt="Foto" style="height: 200px">
-            <div class="px-6 py-4">
+            <div class="px-6 py-4 text-center">
               <div class="font-bold text-xl mb-2">{{ $item->title }}</div>
               <p class="text-base">
                 {{ $item->description }}
               </p>
-              <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              {{-- <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
                 Book now!
-              </button>
+              </button> --}}
             </div>
           </div>
           @endforeach

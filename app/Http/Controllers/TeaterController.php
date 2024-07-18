@@ -82,6 +82,7 @@ class TeaterController extends Controller
             'title' => 'required',
             'description' => 'nullable',
             'show_date' => 'required|date',
+            'gambar' => 'required',
         ]);
 
         $teater->update($request->all());
