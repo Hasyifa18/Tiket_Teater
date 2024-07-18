@@ -27,7 +27,8 @@ class User2Controller extends Controller
         $data = Teater::findOrFail($id); // Menemukan record Teater berdasarkan $id
         $data2 = User::first(); // Mengambil record pertama dari model User (mungkin Anda ingin menggunakan findOrFail juga?)
         $data3 = Seat::all(); // Mengambil record pertama dari model Seat (mungkin Anda ingin menggunakan findOrFail juga?)
-        return view('user2.checkout', compact('data', 'data2', 'data3','user'));
+        $teaters = Teater::all(); //ambil semua teater untuk dropdown select theater
+        return view('user2.checkout', compact('data', 'data2', 'data3','user', 'teaters'));
     }
 
     public function store(Request $request)

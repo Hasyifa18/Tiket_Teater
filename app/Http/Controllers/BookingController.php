@@ -71,15 +71,6 @@ class BookingController extends Controller
             'payment_method' => 'required',
         ]);
 
-        // $booking->update([
-        //     'customer_name' => $request->customer_name,
-        //     'email' => $request->email,
-        //     'phone' => $request->phone,
-        //     'teater_id' => $request->teater_id,
-        //     'seat_id' => $request->seat_id,
-        //     'number_ticket' => $request->number_ticket,
-        //     'payment_method' => $request->payment_method,
-
         $booking->update($request->only([
             'customer_name', 'email', 'phone', 'teater_id', 'seat_id', 'number_ticket', 'payment_method'
         ]));

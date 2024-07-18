@@ -28,10 +28,22 @@
                     </div>
                 </div>
 
-                <div class="row mb-3">
+                {{-- <div class="row mb-3">
                     <label for="teater_id" class="col-md-4 col-form-label text-md-end">{{ __('Select Theater') }}</label>
                     <div class="col-md-6">
                         <input type="text" class="form-control" id="teater_id" name="teater_id" value="{{ $data->id }}" required>
+                    </div>
+                </div> --}}
+
+                <div class="row mb-3">
+                    <label for="teater_id" class="col-md-4 col-form-label text-md-end">{{ __('Select Theater') }}</label>
+                    <div class="col-md-6">
+                        <select class="form-select" name="teater_id" id="teater_id" required>
+                            <option value="" select disabled>Select Theater</option>
+                            @foreach($teaters as $teater)
+                                <option value="{{ $teater->id }}" {{ $data->id == $teater->id ? 'selected' : '' }}>{{ $teater->title }}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 
@@ -61,10 +73,9 @@
                     <div class="col-md-6">
                         <select class="form-select" id="payment_method" name="payment_method" required>
                             <option value="" selected disabled>Select Payment Method</option>
-                            <option value="credit_card" {{ old('payment_method') == 'credit_card' ? 'selected' : '' }}>Credit Card</option>
+                            <option value="dana" {{ old('payment_method') == 'dana' ? 'selected' : '' }}>DANA</option>
                             <option value="ovo" {{ old('payment_method') == 'ovo' ? 'selected' : '' }}>OVO</option>
                             <option value="gopay" {{ old('payment_method') == 'gopay' ? 'selected' : '' }}>GoPay</option>
-                            <option value="other" {{ old('payment_method') && !in_array(old('payment_method'), ['credit_card', 'ovo', 'gopay']) ? 'selected' : '' }}>Other</option>
                         </select>
                     </div>
                 </div>

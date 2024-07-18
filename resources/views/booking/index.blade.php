@@ -56,7 +56,6 @@
                             @endforeach
                         </tbody>
                     </table>
-                    {{-- {{ $bookings->links() }} --}}
                 </div>
             </div>
         </div>

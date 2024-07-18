@@ -29,7 +29,7 @@
                 <td>{{ $item->created_at }}</td>
                 <td>
                     @if(isset($item->bukti))
-                        <img src="{{ asset('storage/foto/' . $item->bukti) }}" alt="Bukti" class="img-fluid">
+                        <img src="{{ asset('storage/foto/' . $item->bukti) }}" alt="Bukti" class="img-fluid" style="width:250px; height:400px">
                     @else
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#darkModal">
                             Upload Bukti
