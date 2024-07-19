@@ -5,10 +5,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Create User') }}</div>
+                    @if ($errors->any())
+                    <div class=" mb-4">
+                        <ul class="list-disc list-inside text-red-500">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                     @endif
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('user.store') }}">
                         @csrf
 
                         <div class="row mb-3">
@@ -61,26 +70,26 @@
                             </div>
                         </div>
 
-                        {{-- <div class="row mb-3">
-                            <label for="role_id" class="col-md-4 col-form-label text-md-end">{{ __('Role') }}</label>
+                        <div class="row mb-3">
+                            <label for="role_id" class="col-md-4 col-form-label text-md-end ">{{ __('Role') }}</label>
                             <div class="col-md-6">
-                                <select name="role_id" id="role_id" class="from-control">
+                                <select name="role_id" id="role_id" class="form-control">
                                     <option value="">Pilih Role</option>
                                     @foreach ($roles as $role)
                                     <option value={{ $role->id }}>{{ $role->role }}</option>
-                                    @endforeach
-                                </select> 
+                                     @endforeach
+                            </select>
                             </div>
-                            @error('role_id')
+                            
+                        @error('role_id')
                             <span class="text-red-500 text-sm">{{ $message }}</span>
                         @enderror
                         </div>
-                        </div> --}}
 
-                        <div class="row mb-2">
+                        <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Submit') }}
                                 </button>
                             </div>
                         </div>
